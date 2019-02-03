@@ -1,0 +1,14 @@
+﻿<h1>Hi {{currentUser.user.firstName}}!</h1>
+<p>You're logged in with Idrive</p>
+<a (click)="loadAllUsers(currentUser.user.id)" class="text-success">Get Todos List</a>
+<section class="main" *ngIf="todos.length > 0">
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" >
+        <div class="view">
+          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.status">
+          <label>{{todo.name}}</label>
+          <button class="destroy" (click)="removeTodo(todo)">Completed</button>
+        </div>
+      </li>
+    </ul>
+  </section>
